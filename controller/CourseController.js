@@ -75,13 +75,35 @@ class CourseController {
       const updatedCourse = await course.save();
 
       // Returning a success response with the updated course 
-      
+
       res.status(HTTP_STATUS.OK).json(success('Course updated successfully', updatedCourse));
     } catch (error) {
       // Returning a failure response if there is an error 
 
       console.error('Error updating course:', error);
       res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(failure('Failed to update course', error));
+    }
+  }
+
+  async deleteById(req, res) {
+    try {
+      const courseId = req.params.courseId;
+
+      // Find the course by ID
+      const course = await Course.findById(courseId);
+      if (!course) {
+        return res.status(HTTP_STATUS.NOT_FOUND).json(failure('Course not found'));
+      }
+
+      // Deleting the course from the database
+      await course.deleteOne();
+
+      // Return a success response for successful deletion 
+      res.status(HTTP_STATUS.OK).json(success('Course deleted successfully'));
+    } catch (error) {
+      // Return a failure response if there is an error 
+      console.error('Error deleting course:', error);
+      res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(failure('Failed to delete course', error));
     }
   }
 }

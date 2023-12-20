@@ -13,11 +13,17 @@ router.post(
 // Get All Courses
 router.get("/api/getAllCourses", CourseController.getAllCourses);
 
-// Update a quiz by ID
+// Update a Course By ID
 router.patch(
     "/api/updateCourse/:courseId",
     CourseController.partialUpdateById
-  );
+);
+
+// Delete a Course By ID
+router.delete(
+    "/api/deleteCourse/:courseId",
+    CourseController.deleteById
+);
 
 
 
