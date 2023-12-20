@@ -13,6 +13,12 @@ router.post(
 // Get All Courses
 router.get("/api/getAllCourses", CourseController.getAllCourses);
 
+// Update a quiz by ID
+router.patch(
+    "/api/updateCourse/:courseId",
+    CourseController.partialUpdateById
+  );
+
 
 
 module.exports = router;

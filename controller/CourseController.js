@@ -53,6 +53,37 @@ class CourseController {
       res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(failure('Failed to retrieve courses', error));
     }
   }
+
+  async partialUpdateById(req, res) {
+    try {
+      const courseId = req.params.courseId;
+      const updates = req.body;
+
+      // Find the course by ID
+      const course = await Course.findById(courseId);
+      if (!course) {
+        return res.status(HTTP_STATUS.NOT_FOUND).json(failure('Course not found'));
+      }
+
+      // Updating only the fields provided in the request body
+      console.log(Object.keys(updates))
+      Object.keys(updates).forEach(key => {
+        course[key] = updates[key];
+      });
+
+      // Save the updated course to the database
+      const updatedCourse = await course.save();
+
+      // Returning a success response with the updated course 
+      
+      res.status(HTTP_STATUS.OK).json(success('Course updated successfully', updatedCourse));
+    } catch (error) {
+      // Returning a failure response if there is an error 
+
+      console.error('Error updating course:', error);
+      res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(failure('Failed to update course', error));
+    }
+  }
 }
 
 module.exports = new CourseController();
