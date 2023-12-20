@@ -10,6 +10,9 @@ router.post(
   CourseController.createCourse
 );
 
+// Get All Courses
+router.get("/api/getAllCourses", CourseController.getAllCourses);
+
 
 
 module.exports = router;
