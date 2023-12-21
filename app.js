@@ -7,6 +7,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 
 const CourseRouter = require("./routes/CourseRouter");
+const AuthRouter = require("./routes/AuthRouter");
 
 const databaseConnection = require("./config/database");
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/auth", AuthRouter);
 app.use("/course", CourseRouter);
 
 app.use((req, res) => {
