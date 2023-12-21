@@ -46,13 +46,13 @@ To run this project you need to:
 ## Description
 
 An admin can:
-● Login to the system
-● Create a course
-● Get a list of all courses
-● Get a specific course by ID
-● Update an existing course
-● Delete a course
 
+ - Login to the system 
+ - Create a course
+ -  Get a list of all courses 
+ - Get a specific course by ID 
+ - Update an existing course 
+ - Delete a course
 
 ## Sample Request and Response
 
