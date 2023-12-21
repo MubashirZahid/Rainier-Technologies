@@ -15,6 +15,13 @@ router.post(
 // Get All Courses
 router.get("/api/getAllCourses", CourseController.getAllCourses);
 
+// Get One Course By Id
+router.get("/api/getOneCourseById/:courseId", 
+  isAuthorized,
+  isAdmin,
+  CourseController.getOneCourseById
+);
+
 // Update a Course By ID
 router.patch(
     "/api/updateCourse/:courseId",

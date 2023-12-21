@@ -54,6 +54,27 @@ class CourseController {
     }
   }
 
+  async getOneCourseById(req, res) {
+    try {
+      const courseId = req.params.courseId;
+
+      // Find the course by ID
+      const course = await Course.findById(courseId);
+      if (!course) {
+        return res.status(HTTP_STATUS.NOT_FOUND).json(failure('Course not found'));
+      }
+
+      // Return the found course as a success response 
+      res.status(HTTP_STATUS.OK).json(success('Course retrieved successfully', course));
+
+    } catch (error) {
+      // Return a failure response if there is an error 
+
+      console.error('Error retrieving course by ID:', error);
+      res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(failure('Failed to retrieve course by ID', error));
+    }
+  }
+
   async partialUpdateById(req, res) {
     try {
       const courseId = req.params.courseId;
