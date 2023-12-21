@@ -1,9 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// const morgan = require("morgan");
-const fs = require("fs");
-const path = require("path");
 const dotenv = require("dotenv");
 
 const CourseRouter = require("./routes/CourseRouter");
