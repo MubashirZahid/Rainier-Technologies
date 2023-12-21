@@ -44,7 +44,9 @@ To run this project you need to:
 	
 
     DATABASE_URL = Your mongoDB atlas password/rainier-tech
-	SECRET_KEY = "Your Secret Key"
+	
+
+    SECRET_KEY = "Your Secret Key"
 	
 6. Finally, run the project using `npx nodemon app.js` 
 	
