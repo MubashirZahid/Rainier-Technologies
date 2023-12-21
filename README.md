@@ -17,7 +17,7 @@
 
 ## About
 
- A CRUD operation for admin's of an e-learning project  using Node.JS, Express.JS and mongoDB
+ A CRUD operation for admin's panel of an e-learning project  using Node.JS, Express.JS and mongoDB
  
 
 ## Project Dependency
