@@ -38,8 +38,15 @@ To run this project you need to:
 
  
 2. Then open cmd prompt and type  `cd project-path`
-4. Then install node-modules using `npm i`
-5. Finally, run the project using `npx nodemon app.js` 
+3. Then install node-modules using `npm i`
+4. Then create a `.env`  file and give this
+
+	
+
+    DATABASE_URL = Your mongoDB atlas password/rainier-tech
+	SECRET_KEY = "Your Secret Key"
+	
+6. Finally, run the project using `npx nodemon app.js` 
 	
  
 
